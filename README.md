@@ -1,6 +1,6 @@
-# 🗺️ Laboratorio Integrador - Análisis Geoespacial de Comuna Chilena
+# 🗺️ Laboratorio Integrador - Análisis Geoespacial de San Bernardo
 
-[![GitHub](https://img.shields.io/badge/GitHub-franciscoparrao-blue?style=flat&logo=github)](https://github.com/franciscoparrao)
+[![GitHub](https://img.shields.io/badge/GitHub-onlyg19-blue?style=flat&logo=github)](https://github.com/onlyg19)
 [![Course](https://img.shields.io/badge/Curso-Geoinformática-green)](https://github.com/franciscoparrao/geoinformatica)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
@@ -12,10 +12,9 @@ Proyecto integrador que combina todas las tecnologías y métodos aprendidos en 
 
 | Integrante | Rol | GitHub |
 |------------|-----|--------|
-| [Nombre 1] | [Rol/Responsabilidad] | [@usuario1] |
-| [Nombre 2] | [Rol/Responsabilidad] | [@usuario2] |
+| Byron Gracia | Desarrollador Principal | [@onlyg19](https://github.com/onlyg19) |
 
-**Comuna seleccionada:** [NOMBRE DE LA COMUNA]
+**Comuna seleccionada:** San Bernardo
 **Repositorio del curso:** [github.com/franciscoparrao/geoinformatica](https://github.com/franciscoparrao/geoinformatica)
 
 ## 🚀 Quick Start
@@ -32,8 +31,8 @@ Proyecto integrador que combina todas las tecnologías y métodos aprendidos en 
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/franciscoparrao/geoinformatica.git
-cd geoinformatica/laboratorio-integrador
+git clone https://github.com/onlyg19/laboratorio_geoinformatica.git
+cd laboratorio_geoinformatica/laboratorio_integrador
 
 # 2. Ejecutar script de configuración
 chmod +x setup.sh
@@ -59,7 +58,7 @@ docker-compose ps
 | Web App | http://localhost:5000 | - |
 | PgAdmin | http://localhost:5050 | admin@admin.com/admin |
 
-## 📁 Estructura del Proyecto
+## � Estructura del Proyecto
 
 ```
 laboratorio_integrador/
@@ -146,7 +145,7 @@ docker exec -it postgis psql -U geouser -d geodatabase
 
 ```bash
 # Ejecutar script de descarga
-python scripts/download_data.py --comuna "La Florida" --year 2024
+python scripts/download_data.py --comuna "San Bernardo" --year 2024
 
 # Opciones disponibles:
 # --comuna: Nombre de la comuna
@@ -158,27 +157,27 @@ python scripts/download_data.py --comuna "La Florida" --year 2024
 
 ### Fase 1: Preparación de Datos (Semana 1)
 
-- [ ] Seleccionar comuna de estudio
-- [ ] Configurar ambiente de desarrollo
-- [ ] Descargar datos de múltiples fuentes
-- [ ] Cargar datos en PostGIS
-- [ ] Validar calidad de datos
+- [ ] Seleccionar comuna de estudio ✅
+- [ ] Configurar ambiente de desarrollo ✅
+- [ ] Descargar datos de múltiples fuentes ✅
+- [ ] Cargar datos en PostGIS ⏳
+- [ ] Validar calidad de datos ✅
 
 ### Fase 2: Análisis Espacial (Semana 2)
 
-- [ ] Análisis exploratorio (ESDA)
-- [ ] Calcular autocorrelación espacial
-- [ ] Identificar hot spots y clusters
-- [ ] Crear visualizaciones temáticas
-- [ ] Análisis geoestadístico
+- [ ] Análisis exploratorio (ESDA) ✅
+- [ ] Calcular autocorrelación espacial ⏳
+- [ ] Identificar hot spots y clusters ⏳
+- [ ] Crear visualizaciones temáticas ✅
+- [ ] Análisis geoestadístico ⏳
 
 ### Fase 3: Machine Learning y Aplicación (Semana 3)
 
-- [ ] Feature engineering espacial
-- [ ] Entrenar modelos predictivos
-- [ ] Validación espacial
-- [ ] Desarrollar aplicación web
-- [ ] Documentar resultados
+- [ ] Feature engineering espacial ⏳
+- [ ] Entrenar modelos predictivos ⏳
+- [ ] Validación espacial ⏳
+- [ ] Desarrollar aplicación web ✅
+- [ ] Documentar resultados ✅
 
 ## 🔬 Análisis Incluidos
 
