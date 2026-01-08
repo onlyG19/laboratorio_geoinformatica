@@ -25,8 +25,8 @@ libpysal==4.9.2
 momepy==0.6.0
 pointpats==2.4.0
 
-# Geostatistics
-scikit-gstat==1.0.15
+# Geostatistics (Python 3.11 compatible)
+scikit-gstat>=1.0.22
 pykrige==1.7.0
 
 # Visualization
