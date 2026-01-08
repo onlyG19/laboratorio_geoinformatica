@@ -95,6 +95,21 @@ El sistema incluye un dashboard interactivo desarrollado en **Streamlit** que pe
 
 ---
 
+## 📄 Screenshots
+- **Capturas de la app funcionando desde local**: 
+
+<img width="1845" height="920" alt="imagen" src="https://github.com/user-attachments/assets/08cc5ea6-1bcf-436b-a9d9-add06cf83e43" />
+
+<img width="1845" height="920" alt="imagen" src="https://github.com/user-attachments/assets/9375ddf6-d170-4437-859f-7374ec9f52b5" />
+
+<img width="1845" height="920" alt="imagen" src="https://github.com/user-attachments/assets/06bd5715-c508-4da5-adbe-bcbe6ecc34c1" />
+
+<img width="1845" height="920" alt="imagen" src="https://github.com/user-attachments/assets/f931663f-9962-40ce-9cac-e8034d29e8ee" />
+
+<img width="1845" height="920" alt="imagen" src="https://github.com/user-attachments/assets/dd3b3aa3-6d68-474e-b514-dae88a210e14" />
+
+---
+
 ## 📄 Licencia y Contacto
 
 Este repositorio se distribuye bajo la licencia MIT. Para consultas académicas o técnicas, contactar a `byron.gracia@usach.cl`.
