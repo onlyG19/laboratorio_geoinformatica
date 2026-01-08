@@ -329,7 +329,34 @@ elif page == "🤖 Machine Learning":
                 st.caption("Los colores más oscuros indican zonas donde el modelo predice una mayor concentración de servicios urbanos.")
 
             with col2:
-                st.subheader("Resumen de Predicción")
+                st.subheader("Leyenda y Resumen")
+                
+                # Leyenda de colores explicativa
+                st.markdown("""
+                <div style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border: 1px solid #444; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong>¿Qué significan los colores?</strong></p>
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 18px; height: 18px; background-color: #bd0026; margin-right: 10px; border-radius: 3px;"></div>
+                        <span style="font-size: 0.9em;">Muy Alta (+10 servicios)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 18px; height: 18px; background-color: #f03b20; margin-right: 10px; border-radius: 3px;"></div>
+                        <span style="font-size: 0.9em;">Alta (5-10 servicios)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 18px; height: 18px; background-color: #feb24c; margin-right: 10px; border-radius: 3px;"></div>
+                        <span style="font-size: 0.9em;">Media (1-5 servicios)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 18px; height: 18px; background-color: #ffeda0; margin-right: 10px; border-radius: 3px;"></div>
+                        <span style="font-size: 0.9em;">Baja (0-1 servicios)</span>
+                    </div>
+                    <p style="font-size: 0.8em; line-height: 1.2; color: #888;">
+                        <i>Cada recuadro es una zona de la comuna. El color muestra cuántos servicios (salud, comercio, etc.) el modelo "cree" que hay según el entorno.</i>
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
+
                 avg_pred = preds['prediction'].mean()
                 max_pred = preds['prediction'].max()
                 
