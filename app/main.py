@@ -42,6 +42,27 @@ def load_data_from_postgis(query):
     engine = get_db_engine()
     return gpd.read_postgis(query, engine, geom_col='geometry')
 
+def create_base_map(location, zoom_start=13, satellite_view=False):
+    """Crea un mapa base de folium con opción de satélite."""
+    if satellite_view:
+        m = folium.Map(
+            location=location,
+            zoom_start=zoom_start,
+            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+            attr='Esri World Imagery'
+        )
+        # Añadir etiquetas para que el mapa sea legible
+        folium.TileLayer(
+            tiles='https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+            attr='&copy; OpenStreetMap contributors &copy; CARTO',
+            name='Etiquetas',
+            overlay=True,
+            control=False
+        ).add_to(m)
+    else:
+        m = folium.Map(location=location, zoom_start=zoom_start, tiles='cartodbpositron')
+    return m
+
 # CSS personalizado
 st.markdown("""
     <style>
@@ -70,7 +91,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Navegación Vertical
-    st.markdown("### � Navegación")
+    st.markdown("### Navegación")
     page = st.radio(
         label="Ir a sección:",
         options=["🏠 Inicio", "📊 Datos", "🗺️ Análisis Espacial", 
@@ -108,15 +129,20 @@ if page == "🏠 Inicio":
         # Cargas capas adicionales si existen
         st.subheader(f"📍 Mapa Base: {comuna_name}")
         
-        layers_to_show = st.multiselect(
-            "Seleccionar capas a visualizar:",
-            ["Edificios", "Amenidades", "Nodos Red Vial"],
-            default=["Edificios"]
-        )
+        col_select, col_toggle = st.columns([3, 1])
+        with col_select:
+            layers_to_show = st.multiselect(
+                "Seleccionar capas a visualizar:",
+                ["Edificios", "Amenidades"],
+                default=["Edificios"]
+            )
+        with col_toggle:
+            st.markdown("<br>", unsafe_allow_html=True)
+            satellite_view = st.toggle("Vista Satélite 🛰️", value=False)
 
         # Centro del mapa
         centroid = boundary.geometry.centroid.iloc[0]
-        m = folium.Map(location=[centroid.y, centroid.x], zoom_start=13, tiles='cartodbpositron')
+        m = create_base_map(location=[centroid.y, centroid.x], zoom_start=13, satellite_view=satellite_view)
 
         # Dibujar límite comunal
         folium.GeoJson(
@@ -213,7 +239,12 @@ elif page == "🗺️ Análisis Espacial":
         col1, col2 = st.columns([3, 1])
         
         with col1:
-            st.subheader("Mapa de Clusters LISA")
+            col_title, col_toggle = st.columns([3, 1])
+            with col_title:
+                st.subheader("Mapa de Clusters LISA")
+            with col_toggle:
+                sat_lisa = st.toggle("Vista Satélite 🛰️", value=False, key="sat_lisa")
+
             st.markdown("""
                 El mapa muestra los **Indicadores Locales de Asociación Espacial (LISA)**. 
                 Cada celda de 500m representa un patrón local:
@@ -221,7 +252,7 @@ elif page == "🗺️ Análisis Espacial":
             
             # Centro del mapa
             centroid = boundary.geometry.centroid.iloc[0]
-            m = folium.Map(location=[centroid.y, centroid.x], zoom_start=12, tiles='cartodbpositron')
+            m = create_base_map(location=[centroid.y, centroid.x], zoom_start=12, satellite_view=sat_lisa)
 
             # Colores para clusters
             color_map = {
@@ -303,11 +334,15 @@ elif page == "🤖 Machine Learning":
         with tab1:
             col1, col2 = st.columns([3, 1])
             with col1:
-                st.subheader("Densidad de Amenidades Predicha")
+                col_title, col_toggle = st.columns([3, 1])
+                with col_title:
+                    st.subheader("Densidad de Amenidades Predicha")
+                with col_toggle:
+                    sat_ml = st.toggle("Vista Satélite 🛰️", value=False, key="sat_ml")
                 
                 # Centro del mapa
                 centroid = boundary.geometry.centroid.iloc[0]
-                m = folium.Map(location=[centroid.y, centroid.x], zoom_start=12, tiles='cartodbpositron')
+                m = create_base_map(location=[centroid.y, centroid.x], zoom_start=12, satellite_view=sat_ml)
 
                 # Dibujar predicciones (Choropleth)
                 folium.GeoJson(
