@@ -63,25 +63,28 @@ st.title("🗺️ Sistema de Análisis Territorial")
 comuna_name = os.getenv('COMUNA_NAME', 'San Bernardo')
 st.markdown(f"### Comuna: {comuna_name}")
 
-# Sidebar
+# Sidebar - Navegación y Configuración
 with st.sidebar:
-    st.image("https://via.placeholder.com/300x100?text=Logo+USACH", width=300)
+    st.title("🗺️ Panel de Control")
+    st.subheader("Geoinformática 2025")
     st.markdown("---")
 
-    st.markdown("### 📊 Navegación")
-    page = st.selectbox(
-        "Seleccione una sección:",
-        ["🏠 Inicio", "📊 Datos", "🗺️ Análisis Espacial",
-         "🤖 Machine Learning", "📈 Resultados"]
+    # Navegación Vertical
+    st.markdown("### � Navegación")
+    page = st.radio(
+        label="Ir a sección:",
+        options=["🏠 Inicio", "📊 Datos", "🗺️ Análisis Espacial", 
+                 "🤖 Machine Learning", "📈 Resultados"],
+        label_visibility="collapsed"
     )
 
     st.markdown("---")
     st.markdown("### ℹ️ Información")
     st.info(
         """
-        **Laboratorio Integrador**
-        Geoinformática 2025
-        USACH
+        **Laboratorio Integrador**  
+        Proyecto de Análisis Urbano  
+        USACH | Facultad de Ingeniería
         """
     )
 
