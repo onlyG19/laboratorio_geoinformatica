@@ -458,14 +458,20 @@ elif page == "📈 Resultados":
             st.metric("Total Amenidades Analizadas", int(total_amenities))
 
         st.markdown("""
-        ### 🔍 Principales Hallazgos
-        1. **Concentración de Servicios:** Se identificó un patrón de clustering fuerte en el centro de San Bernardo, con una caída drástica en las zonas periféricas.
-        2. **Precisión Predictiva:** El modelo de Random Forest explica más del 80% de la variabilidad en la ubicación de servicios, sugiriendo que el desarrollo urbano sigue patrones predecibles basados en la vialidad y densidad habitacional.
-        3. **Zonas de Oportunidad:** Las brechas entre la predicción y el conteo real señalan áreas donde el entorno urbano soporta más servicios de los que existen actualmente.
-        """)
+        ### 🔍 Conclusiones del Estudio
+        
+        A partir de la síntesis de los análisis realizados, se presentan los hallazgos clave para la comuna de **San Bernardo**:
 
-        st.markdown("---")
-        st.subheader("📥 Centro de Descargas")
+        1. **Segregación Espacial Significativa:** Mediante el análisis de autocorrelación local (LISA), se ha validado que los servicios no se distribuyen equitativamente. Existe un **centro urbano hiper-concentrado** (Hotspots HH) que contrasta con extensas zonas residenciales periféricas desprovistas de servicios básicos.
+        
+        2. **Predictibilidad del Desarrollo Urbano:** El modelo de Machine Learning logró explicar el **84% de la variabilidad** de los servicios basándose únicamente en atributos espaciales. Esto indica que la oferta de servicios suele seguir reactivamente a la densidad habitacional y la infraestructura vial.
+        
+        3. **Factores Determinantes:** La **densidad de edificaciones** es el factor más influyente (45% de importancia) en la localización de servicios, seguido por la conectividad vial. La distancia geométrica al centro tiene un impacto menor que la densidad física inmediata.
+        
+        4. **Potencial de Intervención:** Las zonas donde el modelo predice una alta densidad pero el conteo real es bajo representan **ventanas de oportunidad** para nuevas inversiones o servicios públicos, ya que el entorno urbano cuenta con la infraestructura base para soportarlos.
+        
+        5. **Efectividad de Datos Abiertos:** La integración de **OpenStreetMap** con técnicas de Geoinformática ha permitido generar un gemelo digital del sistema de servicios comunales, permitiendo una planificación basada en evidencia con bajo costo operativo.
+        """)
         st.write("Exporta los resultados del laboratorio para utilizarlos en otras herramientas SIG (QGIS, ArcGIS) o software estadístico.")
 
         col_d1, col_d2 = st.columns(2)
