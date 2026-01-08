@@ -367,7 +367,7 @@ Este proyecto fue desarrollado como parte del curso de Geoinformática en USACH.
 ## 📧 Contacto
 
 Para consultas sobre el proyecto:
-- Email: [tu-email@usach.cl]
+- Email: [byron.gracia@usach.cl]
 - GitHub Issues: [github.com/franciscoparrao/geoinformatica/issues](https://github.com/franciscoparrao/geoinformatica/issues)
 - Repositorio: [github.com/franciscoparrao/geoinformatica](https://github.com/franciscoparrao/geoinformatica)
 
